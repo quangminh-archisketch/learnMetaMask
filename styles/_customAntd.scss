@@ -1,0 +1,282 @@
+/* Ant Message */
+.ant-message {
+  &.custom-top {
+    top: 60px;
+  }
+  .ant-message-custom-content {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    .anticon {
+      margin-top: -4px;
+    }
+  }
+}
+
+/* Ant Menu */
+.ant-menu {
+  .ant-menu-submenu.ant-zoom-big-leave {
+    display: none;
+  }
+}
+
+/* Ant Select */
+.ant-select-selection-item {
+  display: inline-flex;
+  align-items: center;
+
+  .ant-select-selection-item-remove {
+    display: inline-flex;
+  }
+}
+.ant-select-clear {
+  display: inline-flex;
+  margin-top: 0;
+  transform: translateY(-50%);
+}
+
+/* Ant Table */
+.ant-table-thead {
+  .ant-table-column-sorters {
+    .ant-table-column-sorter {
+      display: inline-flex;
+      .ant-table-column-sorter-inner {
+        margin-bottom: 2px;
+      }
+    }
+  }
+}
+.ant-table-tbody {
+  .ant-table-cell {
+    vertical-align: middle;
+    line-height: 1;
+  }
+}
+
+/* Ant Popconfirm */
+.ant-popconfirm {
+  .ant-popover-message {
+    .anticon {
+      margin-top: 1px;
+    }
+  }
+  .ant-popover-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+/* Ant Input */
+.ant-input-affix-wrapper {
+  .ant-input-suffix {
+    .ant-input-clear-icon {
+      display: inline-flex;
+    }
+  }
+}
+
+/* Ant Picker */
+.ant-picker-range {
+  .ant-picker-range-separator {
+    .ant-picker-separator {
+      display: inline-flex;
+    }
+  }
+}
+
+/* Ant Avatar */
+.ant-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    border-radius: inherit;
+  }
+}
+
+/* Ant Modal */
+.ant-modal-close-x {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ant-modal-confirm .ant-modal-confirm-btns {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.ant-modal-wrap.no-header .ant-modal-close,
+.ant-modal-wrap.no-header .ant-modal-header {
+  display: none;
+}
+.ant-modal-wrap.reset-style {
+  .ant-modal-content {
+    background-color: transparent;
+    .ant-modal-body {
+      padding: 0;
+    }
+    .ant-modal-footer {
+      display: none;
+    }
+  }
+}
+
+/* Ant Pagination */
+.ant-pagination {
+  .ant-pagination-prev .ant-pagination-item-link,
+  .ant-pagination-next .ant-pagination-item-link,
+  .ant-pagination-jump-next .ant-pagination-item-link,
+  .ant-pagination-jump-next .ant-pagination-item-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Ant Form */
+.ant-form {
+  .ant-form-item {
+    margin-bottom: 12px;
+    .ant-form-item-label {
+      padding-bottom: 2px;
+      & > label,
+      .ant-form-item-required {
+        flex-direction: row-reverse;
+        height: auto;
+        &::before {
+          margin-left: 2px;
+        }
+        .ant-form-item-tooltip {
+          position: absolute;
+          transform: translateX(calc(100% + 5px));
+        }
+      }
+    }
+    .ant-form-item-control {
+      .ant-form-item-explain {
+        margin-top: 2px;
+        min-height: 0;
+        .ant-form-item-explain-error {
+          font-size: 80%;
+        }
+      }
+    }
+  }
+}
+
+/* Ant Notification */
+.ant-notification {
+  z-index: 999999999;
+}
+
+/* Ant Button */
+.ant-btn {
+  height: unset;
+  &.ant-btn-loading {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    .ant-btn-loading-icon {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+/* Ant Upload */
+.ant-upload-picture-card-wrapper {
+  .ant-upload.ant-upload-select {
+    .ant-upload {
+      overflow: hidden;
+    }
+  }
+}
+
+/* Ant Breadcrumb */
+.ant-breadcrumb {
+  .ant-breadcrumb-link {
+    a {
+      text-decoration: none;
+    }
+  }
+
+  &.my-breadcrumb {
+    padding: 20px 0;
+    font-size: 14px;
+    color: var(--color-gray-7);
+    li:last-child {
+      font-weight: 500;
+      color: var(--color-primary-700);
+    }
+    a:hover {
+      color: rgba(var(--color-primary-rgb-700), 70%);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      font-size: 14px;
+    }
+  }
+}
+
+/* Ant Rate */
+.ant-rate {
+  display: inline-flex;
+
+  &.not-hover {
+    .ant-rate-star {
+      & > div:hover,
+      & > div:focus {
+        transform: unset;
+      }
+    }
+  }
+
+  .ant-rate-star {
+    display: inline-flex;
+    &:not(:last-child) {
+      margin-right: 3px;
+    }
+    & > div {
+      display: inline-flex;
+    }
+    .ant-rate-star-first,
+    .ant-rate-star-second {
+      display: inline-flex;
+      height: fit-content;
+    }
+    .anticon {
+      display: inline-flex;
+      height: fit-content;
+    }
+  }
+}
+
+/* Ant Steps */
+.ant-steps {
+  .ant-steps-item {
+    .ant-steps-item-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      .ant-steps-icon {
+        display: inline-flex;
+        .my-icon {
+          width: 3rem;
+        }
+      }
+    }
+
+    &.ant-steps-item-active .ant-steps-icon .my-icon {
+      color: rgba(var(--color-primary-rgb-700), 80%);
+    }
+
+    &.ant-steps-item-finish .ant-steps-icon .my-icon {
+      color: var(--color-primary-700);
+    }
+  }
+}

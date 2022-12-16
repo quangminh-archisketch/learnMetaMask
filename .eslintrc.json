@@ -1,0 +1,8 @@
+{
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "@next/next/no-img-element": "off",
+    "no-unused-vars": 1,
+    "react-hooks/exhaustive-deps": 0
+  }
+}

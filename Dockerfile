@@ -1,0 +1,15 @@
+FROM node:14.16.0-alpine3.10
+
+WORKDIR /app
+
+COPY package.json /app/
+
+RUN npm install
+
+COPY . .
+
+ARG DEPLOY_ENV
+
+RUN npm run prod-build
+
+CMD ["npm", "run", "prod-start"]

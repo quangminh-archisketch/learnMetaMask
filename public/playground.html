@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>VRStyler Sandbox - View glTF, glb, obj and babylon files</title>
+        <meta name="description" content="Viewer for glTF, glb, obj and babylon files powered by Babylon.js" />
+        <meta name="keywords" content="VRStyler, low-poly, pbr, AR, VR, Metaverse, Bizverse, glTF, glb, obj, viewer, online viewer, 3D model viewer, 3D, webgl" />
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1" />
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://use.typekit.net/cta4xsb.css" />
+        <!--<link rel="shortcut icon" href="https://www.babylonjs.com/favicon.ico" />-->
+
+        <style>
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+            }
+
+            #host-element {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+            }
+
+						.controls {
+							width: 50%;
+							height: 70px;
+							bottom: 0;
+							position: absolute;
+							z-index: 99999999999
+						}
+        </style>
+    </head>
+
+    <body>
+        <div id="host-element"></div>
+        <script src="/model-playground/babylonjs/ammo.js"></script>
+        <script src="/model-playground/babylonjs/cannon.js"></script>
+        <script src="/model-playground/babylonjs/Oimo.js"></script>
+        <script src="/model-playground/sandbox.js?ver=3"></script>
+				<script>
+				function showInspector() {
+					var inspector = BABYLON;
+					let isVisible = inspector.Inspector.IsVisible;
+					if(!isVisible) inspector.Inspector.Show();
+					if(isVisible) inspector.Inspector.Hide();
+
+					console.log(inspector);
+				};
+				</script>
+    </body>
+</html>

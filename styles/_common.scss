@@ -1,0 +1,222 @@
+html {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+
+  font-size: 62.5%; // 10px
+  @media (max-width: 1024px) {
+    font-size: 59.375%; // 9.5px
+  }
+  @media (max-width: 720px) {
+    font-size: 53.125%; // 8.5px
+  }
+  @media (max-width: 640px) {
+    font-size: 50%; // 8px
+  }
+  @media (max-width: 480px) {
+    font-size: 43.75%; // 7px
+  }
+  @media (max-width: 360px) {
+    font-size: 37.5%; // 6px
+  }
+}
+
+body {
+  width: 100% !important;
+  font-size: 1.4rem;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  font-family: 'Poppins', sans-serif;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// prettier-ignore
+h1, h2, h3, h4, h5, h6, p, span, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+[disabled] {
+  pointer-events: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+.text-truncate-line {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+}
+
+.my-scrollbar {
+  /* width */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px var(--color-primary-100);
+    // border-radius: 10px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-primary-600);
+    // border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+  }
+}
+
+// Seller Models fix scroll table when click show dropdown action
+.menu-action {
+  .ant-dropdown-menu {
+    .ant-dropdown-menu-item {
+      font-weight: 500;
+      color: var(--color-gray-7);
+      &:not([aria-disabled='true']):hover {
+        color: var(--color-primary-700);
+      }
+      &-disabled {
+        opacity: 0.5;
+      }
+
+      .anticon {
+        padding: 0;
+        font-size: 14px;
+        color: currentColor;
+
+        svg {
+          width: 1em;
+          height: 1em;
+        }
+      }
+    }
+  }
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.scroll-disabled {
+  overflow: hidden;
+  touch-action: none;
+}
+.scrollbar-show-on-hover {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 4px;
+  }
+  &:hover::-webkit-scrollbar-thumb {
+    background: #ccc;
+  }
+}
+
+.skeleton-background {
+  background: var(--background-skeleton);
+}
+
+.skeleton-animation-1 {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0.2) 20%,
+      rgba(255, 255, 255, 0.5) 60%,
+      rgba(255, 255, 255, 0)
+    );
+    animation: shimmer 2s infinite;
+    content: '';
+  }
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+.skeleton-animation-2 {
+  position: relative;
+  overflow: hidden;
+  background: var(--background-skeleton);
+  &::after {
+    position: absolute;
+    inset: 0 -150%;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      rgba(190, 190, 190, 0.2) 25%,
+      rgba(129, 129, 129, 0.24) 37%,
+      rgba(190, 190, 190, 0.2) 63%
+    );
+    animation: ant-skeleton-loading 1.4s ease infinite;
+    content: '';
+  }
+}
+
+//Product List
+.ProductList__Grid {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 20px;
+
+  @media screen and (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media screen and (min-width: 1441px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+  @media screen and (min-width: 1921px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
