@@ -16,6 +16,7 @@ import { UserModel } from 'models/user.models';
 
 import { Container } from 'styles/__styles';
 import * as SC from './style';
+import { handlerMessage } from 'common/functions';
 
 const md5 = require('md5');
 
@@ -24,40 +25,44 @@ const LoginPage = () => {
 
   const [isLoading, setLoading] = useState(false);
 
-  const onLogin = async (values: { username: string; password: string }) => {
+  const onLogin = async (values: { taiKhoan: string; matKhau: string }) => {
     try {
       setLoading(true);
 
       let param = { ...values };
-      param.password = md5(values.password);
+      // param.matKhau = md5(values.matKhau);
+      param.matKhau = values.matKhau.trim();
+      param.taiKhoan = values.taiKhoan.trim();
+      console.log(param);
 
-      const { error, data } = await authServices.login(param);
+      const { error } = await authServices.login(param);
 
-      if (!error) onSuccess(data);
+      if (!error) handlerMessage('Login Success', 'success');
       else setLoading(false);
+      router.push(`/`);
     } catch (error: any) {
       setLoading(false);
-      onFailed(error?.data?.message, error?.status);
+      handlerMessage('Login Errors', 'error');
     }
   };
 
-  const onSuccess = (data: { token: string; refresh_token: string; user: UserModel }) => {
-    axios.defaults.headers.common['Authorization'] = 'Bearer ' + data.token;
+  // const onSuccess = (data: { token: string; refresh_token: string; user: UserModel }) => {
+  //   axios.defaults.headers.common['Authorization'] = 'Bearer ' + data.token;
 
-    setToken(data.token, data.refresh_token);
+  //   setToken(data.token, data.refresh_token);
 
-    if (router.query.redirect && typeof router.query.redirect === 'string')
-      router.push(router.query.redirect.replaceAll('__and__', '&'));
-    else if (!data.user.status) router.push(`/verify`);
-    else router.push(`/user/my-orders`);
-  };
+  //   if (router.query.redirect && typeof router.query.redirect === 'string')
+  //     router.push(router.query.redirect.replaceAll('__and__', '&'));
+  //   else if (!data.user.status) router.push(`/verify`);
+  //   else router.push(`/user/my-orders`);
+  // };
 
-  const onFailed = (message?: string, status?: number) => {
-    showNotification('error', {
-      message: 'Login failed',
-      description: (status ? status + ' - ' : '') + (message || messageError.an_unknown_error),
-    });
-  };
+  // const onFailed = (message?: string, status?: number) => {
+  //   showNotification('error', {
+  //     message: 'Login failed',
+  //     description: (status ? status + ' - ' : '') + (message || messageError.an_unknown_error),
+  //   });
+  // };
 
   return (
     <SC.Login_Wrapper>
@@ -69,15 +74,15 @@ const LoginPage = () => {
 
           <Form layout='vertical' onFinish={onLogin}>
             <Form.Item
-              name='username'
+              name='taiKhoan'
               label='Username'
               rules={[{ required: true, message: 'Please enter Username!' }]}>
               <Input placeholder='Username' disabled={isLoading} />
             </Form.Item>
 
             <Form.Item
+              name='matKhau'
               label='Password'
-              name='password'
               rules={[{ required: true, message: 'Please enter Password!' }]}>
               <Input.Password placeholder='Password' bordered={false} disabled={isLoading} />
             </Form.Item>
@@ -102,8 +107,8 @@ const LoginPage = () => {
                 <span>Create an account</span>
               </Link>
             </p>
-
-            <LoginWithSNS onSuccess={onSuccess} onFailed={onFailed} />
+            {/* 
+            <LoginWithSNS onSuccess={onSuccess} onFailed={onFailed} /> */}
           </Form>
         </SC.Login_Form>
       </Container>

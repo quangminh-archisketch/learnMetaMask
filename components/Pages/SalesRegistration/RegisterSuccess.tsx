@@ -18,7 +18,7 @@ const SalesRegistrationSuccess = () => {
         the Vrtyler Store.
       </p>
       <Button type='primary' onClick={() => router.push('/upload-model')}>
-        Upload model
+        d Upload model
       </Button>
     </Wrapper>
   );

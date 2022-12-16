@@ -20,7 +20,6 @@ import notificationServices from 'services/notification-services';
 import NotificationBar from 'components/Fragments/NotificationBar';
 import Icon from 'components/Fragments/Icons';
 import HeaderUser from 'components/Fragments/HeaderUser';
-import Notification from 'components/Pages/Notification';
 
 import { PageProps } from 'models/page.models';
 import { CategoryModel } from 'models/category.models';
@@ -29,10 +28,10 @@ import { ContainerLarge } from 'styles/__styles';
 import * as SC from './style';
 
 const menus = [
-  { key: 'marketplace', title: 'Explore', url: '/explore/all' },
-  { key: 'best-selling', title: 'Best Selling', url: '/explore/all?sort=best-selling' },
-  { key: 'sale-off', title: 'Sale Off 50%', url: '/sale-off/all' },
-  { key: '3d-modeling-service', title: '3D Modeling Service', url: '/' },
+  { key: 'film', title: 'Phim', url: '/explore/all' },
+  { key: 'best-selling', title: 'Rạp CGV', url: '/explore/all?sort=best-selling' },
+  { key: 'sale-off', title: 'Manager', url: '/sale-off/all' },
+  { key: '3d-modeling-service', title: 'About', url: '/' },
 ];
 
 type Props = PageProps & {
@@ -182,29 +181,6 @@ const Header = (props: Props) => {
                     <Icon iconName='shopping-cart' />
                   </Badge>
                 </SC.IconAction>
-
-                {auth?.token && (
-                  <Dropdown
-                    placement='bottomLeft'
-                    arrow={{ pointAtCenter: true }}
-                    overlay={
-                      <SC.NotificationWrapper>
-                        <Notification isPopup />
-                      </SC.NotificationWrapper>
-                    }
-                    trigger={['click']}
-                    visible={screenW < 992 ? false : undefined}
-                    disabled={router.pathname === '/notification'}
-                    getPopupContainer={() => headerRef.current || document.body}>
-                    <SC.IconAction
-                      className='noti'
-                      onClick={() => screenW < 992 && router.push('/notification')}>
-                      <Badge count={notificationTotal}>
-                        <Icon iconName='bell-notification' />
-                      </Badge>
-                    </SC.IconAction>
-                  </Dropdown>
-                )}
 
                 {auth?.token && auth?.user?.is_seller && (
                   <SC.IconAction className='upload' onClick={() => router.push('/upload-model')}>
