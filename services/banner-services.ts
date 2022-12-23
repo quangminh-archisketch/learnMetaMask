@@ -3,7 +3,7 @@ import apiConstant from 'api/api-constants';
 
 const bannerServices = {
   getBanner: async () => {
-    const resp = await apiHandler.create(`${apiConstant.banner}/list`, { status: true });
+    const resp = await apiHandler.get(`${apiConstant.banner}`);
 
     return resp.data;
   },
