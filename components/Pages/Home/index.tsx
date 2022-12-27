@@ -7,6 +7,7 @@ import Models3D from './Models3D';
 import ModelsProduct from './ModelsProduct';
 import BigBanner3D from './BigBanner3D';
 import { maxMedia, maxMediaQuery } from 'styles/__media';
+import ListFilm from './ListFilm';
 
 const Wrapper = styled.main`
   .section__title {
@@ -72,6 +73,7 @@ const HomePage = () => {
   return (
     <Wrapper>
       <HomeBanner />
+      <ListFilm />
       <HomeIntroduction />
       <BuySell />
       <BigBanner3D />

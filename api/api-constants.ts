@@ -10,6 +10,9 @@ const apiConstant = Object.freeze({
 
   //Banner
   banner: `${API_ROOT}/api//QuanLyPhim/LayDanhSachBanner`,
+
+  //Film
+  film: `${API_ROOT}/api/QuanLyPhim`,
 });
 
 export default apiConstant;
