@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const ListFilm = styled.section`
+  .btn-film {
+    margin: 30px 20px 0 20px;
+  }
   .square-flip {
     -webkit-perspective: 1000;
     -moz-perspective: 1000;
