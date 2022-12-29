@@ -7,6 +7,7 @@ import * as L from './style';
 const ListTheater = () => {
   const [loading, setLoading] = useState<boolean>();
   const [theater, setTheater] = useState<TheaterModels>();
+  console.log(theater);
 
   useEffect(() => {
     const onfetchListTheater = async () => {

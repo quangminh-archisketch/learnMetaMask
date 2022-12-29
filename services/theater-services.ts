@@ -3,7 +3,7 @@ import apiConstant from 'api/api-constants';
 
 const theaterServices = {
   getTheater: async () => {
-    const resp = await apiHandler.get(`${apiConstant.theater}/LayThongTinCumRapTheoHeThong`);
+    const resp = await apiHandler.get(`${apiConstant.theater}/LayThongTinLichChieuHeThongRap`);
 
     return resp.data;
   },
