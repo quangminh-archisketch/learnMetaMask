@@ -12,3 +12,9 @@ export type FilmModel = {
   dangChieu: boolean;
   sapChieu: boolean;
 };
+
+export type FilmReducer = {
+  film?: FilmModel[];
+  dangChieu?: FilmModel[];
+  sapChieu?: FilmModel[];
+};
