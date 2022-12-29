@@ -1,13 +1,9 @@
 import styled from 'styled-components';
 
-import HomeBanner from './Banner';
-import BuySell from './BuySell';
-import HomeIntroduction from './Introduction';
-import Models3D from './Models3D';
-import ModelsProduct from './ModelsProduct';
-import BigBanner3D from './BigBanner3D';
-import { maxMedia, maxMediaQuery } from 'styles/__media';
 import ListFilm from './ListFilm';
+import ListTheater from './ListTheater';
+
+import { maxMedia, maxMediaQuery } from 'styles/__media';
 
 const Wrapper = styled.main`
   .section__title {
@@ -72,13 +68,8 @@ const Wrapper = styled.main`
 const HomePage = () => {
   return (
     <Wrapper>
-      <HomeBanner />
       <ListFilm />
-      <HomeIntroduction />
-      <BuySell />
-      <BigBanner3D />
-      <ModelsProduct />
-      <Models3D />
+      <ListTheater />
     </Wrapper>
   );
 };

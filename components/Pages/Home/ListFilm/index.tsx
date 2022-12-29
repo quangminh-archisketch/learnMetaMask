@@ -8,12 +8,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import * as L from './style';
 import { FilmModel } from 'models/film-models';
 import filmServices from 'services/film-services';
 import { handlerMessage } from 'common/functions';
 import { Button } from 'antd';
 import { selectFilmNow, UpdateFilm, selectFilmComing } from 'store/reducer/film';
+
+import * as L from './style';
 
 const ListFilm = () => {
   const [loading, setLoading] = useState<boolean>();
@@ -52,10 +53,10 @@ const ListFilm = () => {
   return (
     <L.ListFilm>
       <div className='btn-film'>
-        <Button className='mr-3' type='primary' onClick={nowShowing}>
+        <Button className='mr-3' type='primary' onClick={nowShowing} loading={loading}>
           Đang Chiếu
         </Button>
-        <Button type='primary' danger onClick={comingSoon}>
+        <Button type='primary' danger onClick={comingSoon} loading={loading}>
           Sắp Chiếu
         </Button>
       </div>

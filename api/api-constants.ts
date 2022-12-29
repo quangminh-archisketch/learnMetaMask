@@ -13,6 +13,9 @@ const apiConstant = Object.freeze({
 
   //Film
   film: `${API_ROOT}/api/QuanLyPhim`,
+
+  //Theater
+  theater: `${API_ROOT}/api/QuanLyRap`,
 });
 
 export default apiConstant;
