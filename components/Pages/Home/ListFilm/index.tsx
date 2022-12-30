@@ -11,7 +11,7 @@ import 'swiper/css/pagination';
 import { FilmModel } from 'models/film-models';
 import filmServices from 'services/film-services';
 import { handlerMessage } from 'common/functions';
-import { Button } from 'antd';
+import { Button, Modal } from 'antd';
 import { selectFilmNow, UpdateFilm, selectFilmComing } from 'store/reducer/film';
 
 import * as L from './style';
@@ -50,6 +50,7 @@ const ListFilm = () => {
   const comingSoon = () => {
     setFilm(filmComing);
   };
+
   return (
     <L.ListFilm>
       <div className='btn-film'>
@@ -68,7 +69,7 @@ const ListFilm = () => {
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}>
-        {film?.map((item, key) => {
+        {film?.map((item) => {
           return (
             <SwiperSlide key='index'>
               <div className='centerflipcards'>
@@ -78,7 +79,6 @@ const ListFilm = () => {
                       <div className='align-center'>
                         <img src={item?.hinhAnh} className='boxshadow' alt={item?.biDanh} />
                       </div>
-                      <h2 className='textshadow'>Kallyas Wp Theme</h2>
                       <h3 className='textshadow'>{item?.tenPhim}.</h3>
                     </div>
                     <div className='flip-overlay' />
@@ -89,6 +89,9 @@ const ListFilm = () => {
                     <div className='square-container2'>
                       <div className='align-center' />
                       <h2>{item?.tenPhim}</h2>
+                      <Button className='mt-5 w-50' type='primary'>
+                        Xem Chi Tiết
+                      </Button>
                     </div>
                     <div className='flip-overlay' />
                   </div>

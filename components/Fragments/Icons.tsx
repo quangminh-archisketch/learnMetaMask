@@ -101,7 +101,7 @@ const Icon = (props: Props) => {
         return (
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            width='1200'
+            width='2000'
             height='800'
             viewBox='-149.851 -86.642 1298.705 519.855'>
             <path d='m953.654 32.477-875.65 112.57-15.62 160.54 868.34-105.26z' />
@@ -116,7 +116,7 @@ const Icon = (props: Props) => {
         return (
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            width='1200'
+            width='2000'
             height='800'
             viewBox='-149.851 -86.642 1298.705 519.855'>
             <path d='m953.654 32.477-875.65 112.57-15.62 160.54 868.34-105.26z' />
