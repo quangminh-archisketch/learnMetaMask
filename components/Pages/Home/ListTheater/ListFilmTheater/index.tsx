@@ -44,7 +44,7 @@ export default ListFilm;
 
 const Wrapper = styled.div`
   .cover-card {
-    height: 350px;
+    height: 180px;
   }
   .card-time {
     display: flex;

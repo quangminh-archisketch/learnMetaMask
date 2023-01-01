@@ -17,7 +17,7 @@ export const Footer_Wrapper = styled.footer`
 
   .footer__background {
     padding: 5rem 0 80px;
-    background-image: url('/static/images/bg-movie-footer.png');
+    background-image: url('/static/images/bg-movie.png');
     width: 100%;
     height: 100%;
     background-position: center;
