@@ -16,36 +16,11 @@ import * as SC from './style';
 
 const menus = [
   {
-    group: 'Company',
+    group: 'Introduction',
     menuItems: [
-      { title: 'Blog', url: '/blog/all' },
-      { title: 'Careers', url: '/' },
-      { title: 'Help Center', url: '/help-center' },
+      { title: 'About', url: '/about' },
       { title: 'Contact Us', url: '/contact-us' },
-    ],
-  },
-  {
-    group: 'Buy 3D Models',
-    menuItems: [
-      { title: 'Free 3D Models', url: '/free-models/all' },
-      { title: 'Best Selling', url: '/explore/all?sort=best-selling' },
-      { title: 'Sale Off 50%', url: '/sale-off/all' },
-      { title: '3D Modeling Service', url: '/' },
-    ],
-  },
-  {
-    group: 'Resources',
-    menuItems: [
-      { title: 'Model Playground', url: 'https://modelviewer.vrstyler.com' },
-      // { title: 'Terms of Service', url: '/' },
-      {
-        title: 'User Agreement',
-        url: 'https://vrstyler.com/help-center/privacy-legal--2ad9ed3e-e784-4e1b-8f9a-12f26a3a1367/user-agreement--f706b8f1-0bcb-4a23-af40-e8290fd7f3ba',
-      },
-      {
-        title: 'Privacy Policy',
-        url: 'https://vrstyler.com/help-center/privacy-legal--2ad9ed3e-e784-4e1b-8f9a-12f26a3a1367/privacy-policy--4bc287f7-3fea-4b20-ad96-d64ed3f32780',
-      },
+      { title: 'Manager', url: '/manager' },
     ],
   },
 ];

@@ -1,8 +1,5 @@
 export type BannerModel = {
-  id: string;
-  status: boolean;
-  image: string;
-  link: string;
-  createAt: string | Date;
-  updateAt: string | Date;
+  maBanner: number;
+  maPhim: number;
+  hinhAnh: string;
 };

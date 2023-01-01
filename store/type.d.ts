@@ -2,6 +2,7 @@ import { CategoryModel } from 'models/category.models';
 import { ProductCartModel } from 'models/checkout.models';
 import { AuthModel } from 'models/page.models';
 import { BannerModel } from 'models/banner.models';
+import { FilmReducer } from 'models/film-models';
 
 export type CartReduxModel = {
   products?: ProductCartModel[];
@@ -49,6 +50,7 @@ export type AppStateModal = {
 };
 
 export type AppState = {
+  film: FilmReducer;
   web: AppStateWeb;
   modal: AppStateModal;
   auth?: AuthModel;

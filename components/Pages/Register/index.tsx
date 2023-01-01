@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 import axios from 'axios';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Checkbox, Form, Input, InputNumber, Select } from 'antd';
 
 import regex from 'common/regex';
 import { messageError } from 'common/constant';
@@ -19,6 +19,8 @@ import { UserModel } from 'models/user.models';
 import * as LoginStyle from 'components/Pages/Login/style';
 import * as L from './style';
 import { Container } from 'styles/__styles';
+import { handlerMessage } from 'common/functions';
+import { Option } from 'antd/lib/mentions';
 
 const md5 = require('md5');
 
@@ -33,33 +35,44 @@ const RegisterPage = () => {
     try {
       setLoading(true);
       let param = { ...values };
-      param.name = values.name.trim();
-      param.password = md5(values.password);
+      console.log(param);
+      // param.name = values.name.trim();
+      // param.password = md5(values.password);
       delete param['confirm_password'];
 
       const { error } = await userServices.register(param);
       if (!error) setSuccess(true);
+      handlerMessage('Register Success', 'success');
 
       setLoading(false);
     } catch (error: any) {
       setLoading(false);
-      onFailed(error?.data?.message, error?.status);
+      handlerMessage('Register Errors', 'error');
     }
   };
 
-  const onSuccess = (data: { token: string; refresh_token: string; user: UserModel }) => {
-    axios.defaults.headers.common['Authorization'] = 'Bearer ' + data.token;
+  // const onSuccess = (data: { token: string; refresh_token: string; user: UserModel }) => {
+  //   axios.defaults.headers.common['Authorization'] = 'Bearer ' + data.token;
 
-    setToken(data.token, data.refresh_token);
-    router.push('/');
-  };
+  //   setToken(data.token, data.refresh_token);
+  //   router.push('/');
+  // };
 
-  const onFailed = (message?: string, status?: number) => {
-    showNotification('error', {
-      message: 'Register failed',
-      description: (status ? status + ' - ' : '') + (message || messageError.an_unknown_error),
-    });
-  };
+  // const onFailed = (message?: string, status?: number) => {
+  //   showNotification('error', {
+  //     message: 'Register failed',
+  //     description: (status ? status + ' - ' : '') + (message || messageError.an_unknown_error),
+  //   });
+  // };
+
+  const prefixSelector = (
+    <Form.Item name='prefix' noStyle>
+      <Select style={{ width: 70 }}>
+        <Option value='86'>+84</Option>
+        <Option value='87'>+86</Option>
+      </Select>
+    </Form.Item>
+  );
 
   return (
     <Container>
@@ -85,7 +98,7 @@ const RegisterPage = () => {
 
               <Form.Item
                 label='Full Name'
-                name='name'
+                name='hoTen'
                 rules={[
                   { required: true, message: 'Please enter Full Name!' },
                   { whitespace: true, message: 'Full Name cannot be empty' },
@@ -95,34 +108,34 @@ const RegisterPage = () => {
 
               <Form.Item
                 label='Username'
-                name='username'
-                tooltip={
-                  <>
-                    <span>- 4 to 20 characters including letters and numbers</span>
-                    <br />
-                    <span>- Characters are allowed [-] [.] [_] interupted</span>
-                  </>
-                }
+                name='taiKhoan'
+                // tooltip={
+                //   <>
+                //     <span>- 4 to 20 characters including letters and numbers</span>
+                //     <br />
+                //     <span>- Characters are allowed [-] [.] [_] interupted</span>
+                //   </>
+                // }
                 rules={[
                   { required: true, message: 'Please enter Username!' },
-                  { pattern: regex.usernameFormat, message: formConstant.username?.format },
+                  // { pattern: regex.usernameFormat, message: formConstant.username?.format },
                 ]}>
                 <Input placeholder='johndoe' />
               </Form.Item>
 
               <Form.Item
                 label='Password'
-                name='password'
+                name='matKhau'
                 tooltip={formConstant.password?.tooltip}
                 rules={[
                   { required: true, message: 'Please enter Password!' },
-                  { pattern: regex.passwordFormat, message: formConstant.password?.format },
+                  // { pattern: regex.passwordFormat, message: formConstant.password?.format },
                 ]}>
                 <Input.Password placeholder='Password' bordered={false} />
               </Form.Item>
 
-              <Form.Item
-                name='confirm_password'
+              {/* <Form.Item
+                name='matKhau'
                 label='Confirm Password'
                 rules={[
                   { required: true, message: 'Please confirm Password' },
@@ -138,6 +151,12 @@ const RegisterPage = () => {
                   }),
                 ]}>
                 <Input.Password placeholder='Confirm Password' bordered={false} />
+              </Form.Item> */}
+              <Form.Item
+                name='soDt'
+                label='Phone Number'
+                rules={[{ required: true, message: 'Please input your phone number!' }]}>
+                <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
               </Form.Item>
 
               <div className='remember_forgotPW accept__terms'>
@@ -162,7 +181,7 @@ const RegisterPage = () => {
                 </Link>
               </p>
 
-              <LoginWithSNS onSuccess={onSuccess} onFailed={onFailed} />
+              {/* <LoginWithSNS onSuccess={onSuccess} onFailed={onFailed} /> */}
             </Form>
           </LoginStyle.Login_Form>
         </LoginStyle.Login_Wrapper>
