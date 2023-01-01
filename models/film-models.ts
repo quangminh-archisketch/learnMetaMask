@@ -18,3 +18,24 @@ export type FilmReducer = {
   dangChieu?: FilmModel[];
   sapChieu?: FilmModel[];
 };
+
+export type FilmDetail = {
+  maPhim: number;
+  tenPhim: string;
+  biDanh: string;
+  trailer: string;
+  hinhAnh: string;
+  moTa: string;
+  maNhom: string;
+  hot: boolean;
+  dangChieu: boolean;
+  sapChieu: boolean;
+  ngayKhoiChieu: string;
+  danhGia: number;
+};
+
+export type FilmDetailModel = {
+  filmId: number;
+  filmDetail?: FilmDetail;
+  setFilmDetail: React.Dispatch<React.SetStateAction<FilmDetail | undefined>>;
+};

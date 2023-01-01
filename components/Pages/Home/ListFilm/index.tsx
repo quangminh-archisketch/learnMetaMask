@@ -11,10 +11,12 @@ import 'swiper/css/pagination';
 import { FilmModel } from 'models/film-models';
 import filmServices from 'services/film-services';
 import { handlerMessage } from 'common/functions';
-import { Button, Modal } from 'antd';
+import { Button } from 'antd';
 import { selectFilmNow, UpdateFilm, selectFilmComing } from 'store/reducer/film';
 
 import * as L from './style';
+import { Router } from 'express';
+import { useRouter } from 'next/router';
 
 const ListFilm = () => {
   const [loading, setLoading] = useState<boolean>();
@@ -24,6 +26,7 @@ const ListFilm = () => {
   const filmComing = useSelector(selectFilmComing);
 
   const dispatch = useDispatch();
+  const router = useRouter();
 
   useEffect(() => {
     const onfetchListFilm = async () => {
@@ -89,7 +92,12 @@ const ListFilm = () => {
                     <div className='square-container2'>
                       <div className='align-center' />
                       <h2>{item?.tenPhim}</h2>
-                      <Button className='mt-5 w-50' type='primary'>
+                      <Button
+                        onClick={() => {
+                          router.push(`/film/${item.maPhim}`);
+                        }}
+                        className='mt-5 w-50'
+                        type='primary'>
                         Xem Chi Tiết
                       </Button>
                     </div>

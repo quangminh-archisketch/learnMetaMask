@@ -7,6 +7,11 @@ const filmServices = {
 
     return resp.data;
   },
+
+  getDetail: async (id: number) => {
+    const resp = await apiHandler.get(apiConstant.film + '/LayThongTinPhim' + `?MaPhim=${id}`);
+    return resp.data;
+  },
 };
 
 export default filmServices;
