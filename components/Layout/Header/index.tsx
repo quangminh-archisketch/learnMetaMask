@@ -30,7 +30,7 @@ import * as SC from './style';
 const menus = [
   { key: 'film', title: 'Phim', url: '/explore/all' },
   { key: 'best-selling', title: 'Rạp CGV', url: '/explore/all?sort=best-selling' },
-  { key: 'sale-off', title: 'Manager', url: '/sale-off/all' },
+  { key: 'sale-off', title: 'Manager', url: '/manager' },
   { key: '3d-modeling-service', title: 'About', url: '/' },
 ];
 
